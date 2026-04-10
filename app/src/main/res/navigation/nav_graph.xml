@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inputFragment">
+
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="alex.valker91.project_cuckoo.features.input.InputFragment"
+        android:label="fragment_input"
+        tools:layout="@layout/fragment_input" >
+        <action
+            android:id="@+id/action_inputFragment_to_clientsFragment"
+            app:destination="@id/clientsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientsFragment"
+        android:name="alex.valker91.project_cuckoo.features.clients.ClientsFragment"
+        android:label="fragment_clients"
+        tools:layout="@layout/fragment_clients" >
+        <action
+            android:id="@+id/action_clientsFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountsFragment"
+        android:name="alex.valker91.project_cuckoo.features.accounts.AccountsFragment"
+        android:label="fragment_accounts"
+        tools:layout="@layout/fragment_accounts" >
+        <action
+            android:id="@+id/action_accountsFragment_to_clientsFragment"
+            app:destination="@id/clientsFragment" />
+        <action
+            android:id="@+id/action_accountsFragment_to_balancesFragment"
+            app:destination="@id/balancesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/balancesFragment"
+        android:name="alex.valker91.project_cuckoo.features.balances.BalancesFragment"
+        android:label="fragment_balances"
+        tools:layout="@layout/fragment_balances" >
+        <action
+            android:id="@+id/action_balancesFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+    </fragment>
+</navigation>
