@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_accountsFragment_to_balancesFragment"
             app:destination="@id/balancesFragment" />
+        <argument
+            android:name="clientApi"
+            app:argType="alex.valker91.project_cuckoo.features.clients.ClientApi" />
     </fragment>
     <fragment
         android:id="@+id/balancesFragment"

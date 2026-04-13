@@ -1,9 +1,14 @@
 package alex.valker91.project_cuckoo.util
 
 import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserPrefs(context: Context) {
-
+@Singleton
+class UserPrefs @Inject constructor(
+    @ApplicationContext context: Context
+) {
     private val prefs = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
 
     fun saveUser(name: String, surname: String) {
@@ -14,10 +19,6 @@ class UserPrefs(context: Context) {
             .apply()
     }
 
-    fun isUserSaved(): Boolean {
-        return prefs.getBoolean("is_user_saved", false)
-    }
-
     fun getName(): String {
         return prefs.getString("name", "") ?: ""
     }
@@ -26,7 +27,11 @@ class UserPrefs(context: Context) {
         return prefs.getString("surname", "") ?: ""
     }
 
-    fun clear() {
-        prefs.edit().clear().apply()
+    fun getFullName(): String {
+        return "${getName()} ${getSurname()}".trim()
+    }
+
+    fun isUserSaved(): Boolean {
+        return prefs.getBoolean("is_user_saved", false)
     }
 }

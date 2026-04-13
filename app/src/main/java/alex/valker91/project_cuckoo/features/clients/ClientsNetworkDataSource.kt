@@ -1,0 +1,18 @@
+package alex.valker91.project_cuckoo.features.clients
+
+import alex.valker91.project_cuckoo.core.Result
+import javax.inject.Inject
+
+class ClientsNetworkDataSource @Inject constructor(
+    private val clientsApiService: ClientsApiService
+) {
+
+    suspend fun getListOfClients(name: String): Result<List<ClientApi>> {
+        return try {
+            val listOfFilms = clientsApiService.getListOfClients(name)
+            Result.Success(listOfFilms)
+        } catch (ex: Exception) {
+            Result.Error(ex)
+        }
+    }
+}
