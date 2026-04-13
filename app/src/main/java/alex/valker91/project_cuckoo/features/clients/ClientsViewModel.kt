@@ -31,7 +31,7 @@ class ClientsViewModel @Inject constructor(
 
     private fun getListOfClients() {
         viewModelScope.launch(Dispatchers.IO) {
-            delay(2_000)
+            delay(1_000)
             val result: Result<List<ClientApi>> = getListOfClientsUseCase.execute(userPrefs.getName())
             Log.d("Kurami", "Result: $result")
             withContext(Dispatchers.Main) {

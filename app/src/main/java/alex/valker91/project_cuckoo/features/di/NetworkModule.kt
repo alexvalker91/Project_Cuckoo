@@ -1,5 +1,6 @@
 package alex.valker91.project_cuckoo.features.di
 
+import alex.valker91.project_cuckoo.features.accounts.AccountsApiService
 import alex.valker91.project_cuckoo.features.clients.ClientsApiService
 import dagger.Module
 import dagger.Provides
@@ -24,6 +25,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideFilmsApiService(retrofit: Retrofit): ClientsApiService =
+    fun provideClientsApiService(retrofit: Retrofit): ClientsApiService =
         retrofit.create(ClientsApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideAccountsApiService(retrofit: Retrofit): AccountsApiService =
+        retrofit.create(AccountsApiService::class.java)
 }
