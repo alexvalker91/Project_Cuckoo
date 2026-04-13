@@ -55,8 +55,15 @@ class ClientsFragment : Fragment() {
 
         observerFlow()
         setUpRecyclerView()
+        observerButton()
     }
 
+    private fun observerButton() {
+        binding.button.setOnClickListener {
+            val action = ClientsFragmentDirections.actionClientsFragmentToCreateNewClientFragment()
+            findNavController().navigate(action)
+        }
+    }
     private fun observerFlow() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

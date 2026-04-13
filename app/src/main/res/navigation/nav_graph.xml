@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_clientsFragment_to_accountsFragment"
             app:destination="@id/accountsFragment" />
+        <action
+            android:id="@+id/action_clientsFragment_to_createNewClientFragment"
+            app:destination="@id/createNewClientFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountsFragment"
@@ -49,5 +52,13 @@
         <argument
             android:name="accountApi"
             app:argType="alex.valker91.project_cuckoo.features.accounts.AccountApi" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewClientFragment"
+        android:name="alex.valker91.project_cuckoo.features.createnewclient.CreateNewClientFragment"
+        android:label="CreateNewClientFragment" >
+        <action
+            android:id="@+id/action_createNewClientFragment_to_clientsFragment"
+            app:destination="@id/clientsFragment" />
     </fragment>
 </navigation>
